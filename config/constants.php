@@ -4,7 +4,7 @@ session_start();
 
 
 // Create constants to store Non Repeating Values
-define('HOME_URL','http://localhost/BE/Website/');
+define('HOME_URL','http://localhost/BE/Canteen_Automation/');
 define('LOCALHOST','localhost');
 define('DB_USERNAME','root');
 define('LDB_PASSWORD','');
