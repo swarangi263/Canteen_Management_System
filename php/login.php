@@ -9,9 +9,9 @@ include("../config/constants.php");
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   
+
     <title>Login</title>
-       
+
 </head>
 
 <body>
@@ -73,6 +73,14 @@ if (isset($_POST['submit'])) {
         $_SESSION['login'] = "<div class ='success'>Login Successful. </div>";
 
         $_SESSION['user'] = $email; //to check if user is logged in or not 
+
+        // while ($row = mysqli_fetch_assoc($result)) {
+        //     //get the details
+        //     $clg_id = $row['college'];
+        // }
+
+        // $_SESSION['clg'] = $clg_id;
+        
 
         // Redirect to home/dashboard
         header('location:' . HOME_URL . 'php/');

@@ -12,6 +12,7 @@ include('../php/partials/navbar.php');
     }
 
     ?>
+    <a href="add-menu.php" target="_blank" class="btn-primary text-center"><button>Add Menu</button></a>
 </div>
 
 <?php
