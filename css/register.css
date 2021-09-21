@@ -1,0 +1,110 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat',sans-serif;
+}
+body{
+    background-image: url(../img/anton-murygin-jD7WYFNJ-0s-unsplash.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.login{
+    height: 28rem;
+    width: 25rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    
+    background: white;
+    transform: translate(-50%,-50%);
+    border-radius: 10px;
+    box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
+}
+
+
+.login h1{
+    
+    text-align: center;
+    padding: 1.25rem 0rem;
+    border-bottom: 1px solid silver;
+}
+.login form{
+    padding: 0 2rem;
+    box-sizing: border-box;
+}
+.txtfield{
+    
+    position: relative;
+    border-bottom:2px solid #adadad;
+    margin: 20px 0;
+}
+.txtfield input{
+    width: 100%;
+    
+    height: 2.5rem;
+    border: none;
+    background: none;
+    outline: none;
+    font-size: 1rem;
+    
+}
+.txtfield label{
+    
+    
+    top: 50%;
+    left: 5px;
+    color: #adadad;
+    transform: translateY(-50%);
+    font-size: 1rem;
+}
+.txtfield span::before{
+    content: '';
+    position: absolute;
+    top: 3.75rem;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: #E84C4F;
+    transition: .5s;
+  }
+  .txtfield input:focus ~ label,
+  .txtfield input:valid ~ label{
+    top: -5px;
+    color: #E84C4F;
+  }
+  .txtfield input:focus ~ span::before,
+  .txtfield input:valid ~ span::before{
+    width: 100%;
+  }
+  input[type="submit"]{
+      width: 100%;
+      height: 50px;
+      border:1px solid;
+      background: #E84C4F;
+      border-radius: 10px;
+      font-size: 1rem;
+      color:rgb(255, 245, 245);
+      cursor: pointer;
+      outline: none;
+  }
+  input[type="submit"]:hover{
+    border-color: #E84C4F;
+    transition: .5s;
+  }
+  .signup_link{
+    margin: 20px 0;
+    text-align: center;
+    font-size: 16px;
+    color: #666666;
+  }
+  .signup_link a{
+    color: #2691d9;
+    text-decoration: none;
+  }
+  .signup_link a:hover{
+    text-decoration: underline;
+  }
