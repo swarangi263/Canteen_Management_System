@@ -1,0 +1,45 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat';
+}
+.navigator{
+    background-color: #E84C4F;
+    display: flex;
+    height: 7vh;
+
+}
+.logo{
+    margin-left: 2rem;
+    color: white;
+    font-family: 'Montserrat';
+    display: flex;
+    flex: 1;
+    font-size: 1.5rem;
+    font-weight: bold;
+    align-items: center;
+    
+}
+.page{
+    display: flex;
+    flex: 1;
+    
+}
+.page ul{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.page li {
+    list-style: none;
+    
+}
+.page li a{
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    
+}

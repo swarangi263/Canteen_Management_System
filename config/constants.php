@@ -4,10 +4,10 @@ session_start();
 
 
 // Create constants to store Non Repeating Values
-define('HOME_URL','http://localhost/BE/Canteen_Automation/');
+define('HOME_URL','http://localhost/Canteen_Automation-main/');
 define('LOCALHOST','localhost');
 define('DB_USERNAME','root');
-define('LDB_PASSWORD','');
+define('DB_PASSWORD','');
 define('DB_NAME','canteen_automation');
 
 $conn = mysqli_connect("localhost","root","") or die(mysqli_error($conn)); //db connection

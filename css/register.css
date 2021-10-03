@@ -13,7 +13,7 @@ body{
 }
 
 .login{
-    height: 28rem;
+    height: 33rem;
     width: 25rem;
     position: absolute;
     top: 50%;
@@ -22,7 +22,7 @@ body{
     background: white;
     transform: translate(-50%,-50%);
     border-radius: 10px;
-    box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
+    box-shadow: 10px 10px 1x rgba(0,0,0,0.05);
 }
 
 
@@ -107,4 +107,9 @@ body{
   }
   .signup_link a:hover{
     text-decoration: underline;
+  }
+  select{
+    margin-top: 2px;
+    padding: 5px;
+    width: 100%;
   }

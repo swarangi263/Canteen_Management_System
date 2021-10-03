@@ -1,0 +1,101 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat';
+}
+.navigator{
+    background-color: #E84C4F;
+    display: flex;
+    height: 7vh;
+
+}
+.logo{
+    margin-left: 2rem;
+    color: white;
+    font-family: 'Montserrat';
+    display: flex;
+    flex: 1;
+    font-size: 1.5rem;
+    font-weight: bold;
+    align-items: center;
+    
+}
+.page{
+    display: flex;
+    flex: 1;
+    
+}
+.page ul{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.page li {
+    list-style: none;
+    
+}
+.page li a{
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    
+}
+.title h1{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+.menutable{
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.menutable table{
+    width: 80%;
+    border: 1px solid black;
+}
+.menutable table td,th{
+text-align: center;
+padding: 1rem;
+border: 1px solid black;
+
+}
+
+.float{
+    position:fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	width:50px;
+	height:50px;
+	bottom:140px;
+	right:30px;
+	background-color:#0C9;
+	color:#FFF;
+	border-radius:10px;
+	text-align:center;
+	box-shadow: 2px 2px 3px #999;
+    border-radius: 100%;
+    padding: 2px;
+    font-size: 1.8rem;
+}
+.float:hover{
+    background-color:#0C9 ;
+    color: white;
+}
+
+.title1{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+ul{
+    list-style-type: none;
+}

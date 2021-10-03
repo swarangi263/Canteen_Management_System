@@ -23,7 +23,7 @@ include('../config/constants.php');
                     </div>
                     <div class="txtfield">
                         <label for="Email">Email</label>
-                        <input type="email" name="username" value="" required>
+                        <input type="email" name="email" value="" required>
                         <span></span>
                     </div>
                     <div class="txtfield">
@@ -36,14 +36,10 @@ include('../config/constants.php');
                         <input type="number" name="contact" value="" required>
                         <span></span>
                     </div>
-                    <input type="submit" name="submit" value="Register" class="btn btn-primary">
-                    <div class="signup_link">
-                        <a href="login.php">Already have an account?</a>
-                    </div>
                     <div class="txtfield">
                         <label for="College">College</label> 
-                        
-                            <select name="college">
+                        <br>
+                        <select name="college">
                                 <option value="0">Select College</option>
                                 <?php
                                 //create code to display categories from db
@@ -75,8 +71,13 @@ include('../config/constants.php');
 
                                 ?>
                             </select>
-                        
+        
                     </div>
+                    <input type="submit" name="submit" value="Register" class="btn btn-primary">
+                    <div class="signup_link">
+                        <a href="login.php">Already have an account?</a>
+                    </div>
+                    
                     
                     
                 
@@ -98,7 +99,7 @@ if (isset($_POST['submit'])) {
     $contact = $_POST['contact'];
     $college = $_POST['college'];
 
-    $input = "INSERT INTO users(name,email,password,contact,college) VALUES ('$name','$email','$password','$contact', '$college')";
+    $input = "INSERT INTO users(name,email,password,contact,college_id) VALUES ('$name','$email','$password','$contact', '$college')";
 
     $result = mysqli_query($conn, $input) or die(mysqli_error($conn));
 
@@ -107,7 +108,7 @@ if (isset($_POST['submit'])) {
         $_SESSION['add'] = "<div class= 'success'>Registered Successfully. </div>";
 
         // Redirect
-        header('location:' . HOME_URL . 'php/index.php', true, 301);
+        header('location:' . HOME_URL . 'php/login.php', true, 301);
     }
 
     echo ($input);

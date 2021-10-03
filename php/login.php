@@ -68,32 +68,36 @@ if (isset($_POST['submit'])) {
     $password = md5($_POST['password']);
 
     // 2. Query to check user exist
-    $sql = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
+    $sql = "SELECT * FROM users WHERE email = '$email' AND password = '$password' AND role = 1";
 
     // 3. Execute query
     $result = mysqli_query($conn, $sql);
 
+    $row= mysqli_fetch_assoc($result);
+    // print_r($result);
+
     // 4. Count to check user exists
     $num = mysqli_num_rows($result);
+
     if ($num == 1) {
 
         $_SESSION['login'] = "<div class ='success'>Login Successful. </div>";
 
-        $_SESSION['user'] = $email; //to check if user is logged in or not 
-
+        $_SESSION['user']= $email; //to check if user is logged in or not 
+        
+        $_SESSION['user_id']= $row['id'];
+        
+        $_SESSION['clg_id']= $row['college_id'];
         // while ($row = mysqli_fetch_assoc($result)) {
         //     //get the details
-        //     $clg_id = $row['college'];
+        //     $_SESSION["clg_id"] = $row['college'];
         // }
-
-        // $_SESSION['clg'] = $clg_id;
-        
 
         // Redirect to home/dashboard
         header('location:' . HOME_URL . 'php/');
     } else {
 
-        $_SESSION['login'] = "<div class ='error text-center'> Username or Password Not Matched. </div>";
+        $_SESSION['login'] = "<div class ='error text-center'> Username or Password Not Matched OR Invalid User. </div>";
 
         // Redirect to home/dashboard
         header('location:' . HOME_URL . 'php/login.php');

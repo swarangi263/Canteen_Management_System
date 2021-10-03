@@ -1,0 +1,32 @@
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    background: rgba(19, 28, 39, 0.8);  
+    margin-top:10px ;
+    /* margin-bottom: 0px; */
+  }
+  .footer-wrapper {
+    font-family: "Pattaya", sans-serif;
+    display: flex;
+    padding: 2rem;
+    width: 90%;
+    align-items: center;
+    min-height: 10vh;
+  }
+  footer h5 {
+    height: 100%;
+    flex: 1 1 40rem;
+    font-weight: normal;
+  }
+  footer ul {
+    display: flex;
+    list-style: none;
+    flex: 1 1 40rem;
+    justify-content: space-between;
+    align-items: center;
+  }
+  footer li {
+    width: 40px;
+  }

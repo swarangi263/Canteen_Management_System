@@ -1,0 +1,94 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat';
+}
+.navigator{
+    background-color: #E84C4F;
+    display: flex;
+    height: 7vh;
+
+}
+.logo{
+    margin-left: 2rem;
+    color: white;
+    font-family: 'Montserrat';
+    display: flex;
+    flex: 1;
+    font-size: 1.5rem;
+    font-weight: bold;
+    align-items: center;
+    
+}
+.page{
+    display: flex;
+    flex: 1;
+    
+}
+.page ul{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.page li {
+    list-style: none;
+    
+}
+.page li a{
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    
+}
+.title h1{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+.menutable{
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+table img{
+    width: 140px;
+    height: 100px;
+}
+.menutable table{
+    width: 80%;
+    border: 1px solid black;
+}
+.menutable table td,th{
+text-align: center;
+padding: 1rem;
+border: 1px solid black;
+
+}
+
+.menutable .ava{
+    background-color: #E84C4F;
+    color: white;
+    padding: 2px 4px;
+    width: 120px;
+    height: 30px;
+    border: none;
+    border-radius: 2px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.menutable .ava:hover{
+    background-color: white;
+    color: #E84C4F;
+}
+
+.update-menu{
+
+    width: 200px;
+}
