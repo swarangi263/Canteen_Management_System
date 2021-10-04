@@ -48,6 +48,7 @@ if(isset($_SESSION['no-item'])){
             <th>Item</th>
             <th>Category</th>
             <th>Image</th>
+            <th>Summary</th>
             <th>Price</th>
             <th>Availability</th>
             <th>Edit</th>
@@ -57,7 +58,12 @@ if(isset($_SESSION['no-item'])){
 
         $college_id = $_SESSION['clg_id'];
 
-        $sql = "SELECT menu_items.id, menu_items.name, menu_items.category_id, menu_items.image, menu_items.summary, menu_items.price, menu_items.availability, categories.name AS cat_name FROM menu_items JOIN categories ON menu_items.category_id = categories.id WHERE menu_items.college_id = $college_id;";
+        $sql = "SELECT menu_items.id, menu_items.name, menu_items.category_id, 
+        menu_items.image, menu_items.summary, menu_items.price, 
+        menu_items.availability, categories.name 
+        AS cat_name FROM menu_items 
+        JOIN categories ON menu_items.category_id = categories.id 
+        WHERE menu_items.college_id = $college_id;";
 
         $res = mysqli_query($conn, $sql);
 
@@ -93,6 +99,7 @@ if(isset($_SESSION['no-item'])){
                 <td><?php echo $item; ?></td>
                 <td><?php echo $category; ?></td>
                 <td><img src="../img/<?php echo $image; ?>" alt=""></td>
+                <td><?php echo $summary; ?></td>
                 <td><?php echo $price; ?></td>
                 <td><?php echo $availability; ?></td>
                 <td><a href="update-menu.php?id=<?php echo $id; ?>"><i class="fas fa-edit fa-lg"></i> </a> &nbsp; <a href="delete-menu.php?id=<?php echo $id; ?>&image=<?php echo $image; ?>"><i class="fas fa-trash fa-lg"></i></a></td>

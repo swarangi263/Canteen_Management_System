@@ -49,6 +49,24 @@ if (isset($_GET['id']) and isset($_GET['image'])) {
             header('location:'.HOME_URL.'php/menu.php',true,301);
         }
     }
+    else{
+        $sql = "DELETE FROM menu_items WHERE id = $id";
+
+        $result = mysqli_query($conn,$sql);
+        
+        //check for query
+        if($result==TRUE){
+            // echo $id.' Deleted';
+            // create session variable to display message
+            $_SESSION['delete'] = "<div class='success'>Menu Item Deleted</div>" ;
+            header('location:'.HOME_URL.'php/menu.php',true,301);
+    
+        }
+        else{
+            $_SESSION['delete'] = "<div class='error'>Error in Deleting</div>" ;
+            header('location:'.HOME_URL.'php/menu.php',true,301);
+        }
+    }
 } else {
     //Redirect to Menu Page
     header('location:' . HOME_URL . 'php/menu.php');

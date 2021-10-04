@@ -179,16 +179,93 @@
 </div>
 
 <button class="modal-btn">
-Add Category
+    Add Category
 </button>
 <div class="modal-bg">
-    <div class="modal"> 
+    <div class="modal">
         <h2>Add Category</h2>
-        
-        <label for="">Name</label>
-        <input type="text" name="name">
-        
-        <button>Add</button>
+
+        <form action="" method="POST" enctype="multipart/form-data">
+
+            <label for="">Name</label>
+            <input type="text" name="c_name"> <br />
+
+            <label for=""> Select Image </label>
+            <input type="file" name="c_image">
+
+            <input type="submit" id="modal_btn" name="c_submit" value="Add">
+
+            <?php
+
+            if (isset($_POST['c_submit'])) {
+
+                $c_name = $_POST['c_name'];
+
+                if (isset($_FILES['c_image']['name'])) {
+
+                    //Upload image
+                    //to upload we need image name, source path and destination path
+                    $c_image = $_FILES['c_image']['name'];
+
+                    //upload the image only if image is selected
+                    if ($c_image != '') {
+
+
+                        //auto rename image
+                        //get the extension of image(jpg, png, gif, etc)
+                        $c_ext = end(explode('.', $c_image));
+
+                        //rename image
+                        $c_image = "Canteen_Menu_Category" . rand(000, 999) . '.' . $c_ext;
+
+                        $c_source_path = $_FILES['c_image']['tmp_name'];
+
+                        $c_destination_path = "../img/" . $c_image;
+
+                        //Finally upload image
+                        $c_upload = move_uploaded_file($c_source_path, $c_destination_path);
+
+                        //check if uploaded or not
+                        //if not uploaded then we will stop the process and redirect with error message
+                        if ($c_upload == FALSE) {
+
+                            $_SESSION['upload'] = "<div class='error'>Failed to Upload Image. </div>";
+
+                            // Redirect
+                            header('location:' . HOME_URL . 'php/category.php');
+                            //stop the process
+                            die();
+                        }
+                    }
+                } else {
+                    //don't upload image and set name as blank
+
+                    $c_image = "";
+                }
+                $sql = "INSERT INTO categories(name,image,college_id) VALUES ('$c_name','$c_image','$college_id')";
+
+                // 3. execute query and saving data in db
+
+                $res = mysqli_query($conn, $sql) or die(mysqli_error($conn));
+
+                // 4. check if data is added and executed query
+                if ($res == TRUE) {
+                    // Data inserted
+                    // Create session variable
+                    $_SESSION['add'] = "<div class= 'success'>Category Added Successfully. </div>";
+
+                    // Redirect
+                    header('location:' . HOME_URL . 'php/category.php');
+                } else {
+
+                    $_SESSION['add'] = "<div class= 'error'>Failed to Add Category. </div>";
+
+                    // Redirect
+                    header('location:' . HOME_URL . 'php/category.php');
+                }
+            }
+            ?>
+        </form>
         <span class='modal-close'>X</span>
     </div>
 </div>
