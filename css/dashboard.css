@@ -10,6 +10,9 @@
     height: 7vh;
 
 }
+.wrapper{
+    min-height: 90vh;
+}
 .logo{
     margin-left: 2rem;
     color: white;

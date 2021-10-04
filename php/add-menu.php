@@ -178,8 +178,20 @@
     </div>
 </div>
 
-<div class="hoverbutton">
-    <a href="category.php" target="_blank" class="float">Add Category</a>
+<button class="modal-btn">
+Add Category
+</button>
+<div class="modal-bg">
+    <div class="modal"> 
+        <h2>Add Category</h2>
+        
+        <label for="">Name</label>
+        <input type="text" name="name">
+        
+        <button>Add</button>
+        <span class='modal-close'>X</span>
+    </div>
 </div>
+<script src="../js/app.js"></script>
 
 <?php include('partials/footer.php'); ?>

@@ -2,6 +2,7 @@
 include('../php/partials/navbar.php');
 ?>
 <link rel="stylesheet" href="../css/dashboard.css">
+<div class="wrapper">
 <div class="title1">
     <h1>Dashboard</h1>
     <?php
@@ -14,6 +15,7 @@ include('../php/partials/navbar.php');
     ?>
 
 </div>
+
 <div class="menutable">
     <table>
         <tr>
@@ -85,7 +87,7 @@ include('../php/partials/navbar.php');
 <div class="hoverbutton">
     <a href="add-menu.php" target="_blank" title="Add Menu" class="float"><i class="fas fa-utensils"></i></a>
 </div>
-
+</div>
 <script>
     function mydetails(x) {
         console.log(x.innerText);
