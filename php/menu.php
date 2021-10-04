@@ -102,7 +102,10 @@ if(isset($_SESSION['no-item'])){
                 <td><?php echo $summary; ?></td>
                 <td><?php echo $price; ?></td>
                 <td><?php echo $availability; ?></td>
-                <td><a href="update-menu.php?id=<?php echo $id; ?>"><i class="fas fa-edit fa-lg"></i> </a> &nbsp; <a href="delete-menu.php?id=<?php echo $id; ?>&image=<?php echo $image; ?>"><i class="fas fa-trash fa-lg"></i></a></td>
+                <td><a href="update-menu.php?id=<?php echo $id; ?>">
+                <i class="fas fa-edit fa-lg"></i> </a> &nbsp; 
+                <a href="delete-menu.php?id=<?php echo $id; ?>&image=<?php echo $image; ?>">
+                <i class="fas fa-trash fa-lg"></i></a></td>
             </tr>
 
         <?php
