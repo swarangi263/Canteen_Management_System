@@ -9,7 +9,7 @@
             <th>Sr No</th>
             <th>Category</th>
             <th>Image</th>
-            <th>Edit</th>
+            <th>Delete</th>
         </tr>
 
         <?php
@@ -41,7 +41,10 @@
                     <td><?php echo $i; ?></td>
                     <td><?php echo $cat; ?></td>
                     <td><img src="../img/<?php echo $image; ?>" alt=""></td>
-                    <td><a href="#"><i class="fas fa-edit fa-lg"></i> </a> &nbsp; <a href="delete-category.php?id=<?php echo $id; ?>&image=<?php echo $image; ?>"><i class="fas fa-trash fa-lg"></i></a></td>
+                    <td>
+                        <a href="delete-category.php?id=<?php echo $id; ?>&image=<?php echo $image; ?>">
+                            <i class="fas fa-trash fa-lg"></i></a>
+                    </td>
                 </tr>
 
         <?php
@@ -55,5 +58,5 @@
 
 </div>
 
-
+<!-- <a href="#"><i class="fas fa-edit fa-lg"></i> </a> &nbsp;  -->
 <?php include('partials/footer.php'); ?>
