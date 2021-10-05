@@ -4,7 +4,26 @@
     <h1>Categories</h1>
 </div>
 <div class="menutable">
-    <table>
+    <?php
+
+    $college_id = $_SESSION['clg_id'];
+
+    $sql = "SELECT * FROM categories  WHERE college_id = $college_id;";
+
+    $res = mysqli_query($conn, $sql);
+
+    $count = mysqli_num_rows($res);
+
+    if ($count == 0) {
+    ?>
+
+        <h2>Please Add Categories</h2>
+
+        <?php
+    } else {
+       ?>
+
+        <table>
         <tr>
             <th>Sr No</th>
             <th>Category</th>
@@ -13,30 +32,14 @@
         </tr>
 
         <?php
+        $i = 1;
 
-        $college_id = $_SESSION['clg_id'];
+        while ($row = mysqli_fetch_assoc($res)) {
 
-        $sql = "SELECT * FROM categories  WHERE college_id = $college_id;";
-
-        $res = mysqli_query($conn, $sql);
-
-        $count = mysqli_num_rows($res);
-
-        if ($count == 0) {
+            $id = $row['id'];
+            $cat = $row['name'];
+            $image = $row['image'];
         ?>
-
-            <h2>Please Add Categories</h2>
-
-            <?php
-        } else {
-            $i = 1;
-
-            while ($row = mysqli_fetch_assoc($res)) {
-
-                $id = $row['id'];
-                $cat = $row['name'];
-                $image = $row['image'];
-            ?>
                 <tr>
                     <td><?php echo $i; ?></td>
                     <td><?php echo $cat; ?></td>
@@ -48,13 +51,13 @@
                 </tr>
 
         <?php
-                $i++;
-            }
+            $i++;
         }
+    }
 
         ?>
 
-    </table>
+            </table>
 
 </div>
 

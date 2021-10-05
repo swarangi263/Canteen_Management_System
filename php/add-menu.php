@@ -183,7 +183,8 @@
 </button>
 <div class="modal-bg">
     <div class="modal">
-        <h2>Add Category</h2>
+        
+    <h2>Add Category</h2>
 
         <form action="" method="POST" enctype="multipart/form-data">
 
