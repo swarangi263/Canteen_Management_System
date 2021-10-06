@@ -13,7 +13,7 @@ include('../config/constants.php');
 </head>
 
 <body>
-
+<div class="wrapper">
     <div class="login">        
             <form action="" method="POST" class="text-center">
                     <div class="txtfield">
@@ -84,7 +84,7 @@ include('../config/constants.php');
             </form>
             
     </div>
-
+</div>
 </body>
 
 </html>

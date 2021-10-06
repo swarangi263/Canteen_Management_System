@@ -1,7 +1,7 @@
 <?php include('partials/navbar.php'); ?>
 
 <link rel="stylesheet" href="../css/menu.css">
-
+<div class="wrapper">
 <div class="title">
     <h1>Menu</h1>
 </div>
@@ -119,5 +119,5 @@ if (isset($_SESSION['no-item'])) {
         </table>
 
 </div>
-
+</div>
 <?php include('partials/footer.php'); ?>

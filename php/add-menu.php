@@ -1,7 +1,7 @@
 <?php include('partials/navbar.php'); ?>
 
 <link rel="stylesheet" href="../css/add-menu.css">
-
+<div class="fullhouse">
 <div class="login">
     <div class="wrapper">
         <h1>Add Menu</h1>
@@ -269,6 +269,7 @@
         </form>
         <span class='modal-close'>X</span>
     </div>
+</div>
 </div>
 <script src="../js/app.js"></script>
 
