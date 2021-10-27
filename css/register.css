@@ -11,9 +11,6 @@ body{
     height: 100vh;
     overflow: hidden;
 }
-.wrapper{
-  min-height: 90vh;
-}
 
 .login{
     height: 33rem;

@@ -1,7 +1,5 @@
 <?php include('partials/navbar.php'); ?>
 <link rel="stylesheet" href="../css/category.css">
-<div class="wrapper">
-
 <div class="title">
     <h1>Categories</h1>
 </div>
@@ -61,7 +59,6 @@
 
             </table>
 
-</div>
 </div>
 
 <!-- <a href="#"><i class="fas fa-edit fa-lg"></i> </a> &nbsp;  -->

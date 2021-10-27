@@ -4,9 +4,6 @@
     box-sizing: border-box;
     font-family: 'Montserrat';
 }
-.wrapper{
-    min-height: 90vh;
-}
 .menutable{
     display: flex;
     justify-content: center;

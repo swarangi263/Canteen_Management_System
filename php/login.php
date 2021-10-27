@@ -81,19 +81,23 @@ if (isset($_POST['submit'])) {
 
     if ($num == 1) {
 
-        $_SESSION['login'] = "<script>alert('Login Successful.')</script>";
+        $_SESSION['login'] = "<div class ='success'>Login Successful. </div>";
 
         $_SESSION['user']= $email; //to check if user is logged in or not 
         
         $_SESSION['user_id']= $row['id'];
         
         $_SESSION['clg_id']= $row['college_id'];
+        // while ($row = mysqli_fetch_assoc($result)) {
+        //     //get the details
+        //     $_SESSION["clg_id"] = $row['college'];
+        // }
 
         // Redirect to home/dashboard
         header('location:' . HOME_URL . 'php/');
     } else {
 
-        $_SESSION['login'] = "<script>alert(' Username or Password Not Matched OR Invalid User.')</script>";
+        $_SESSION['login'] = "<div class ='error text-center'> Username or Password Not Matched OR Invalid User. </div>";
 
         // Redirect to home/dashboard
         header('location:' . HOME_URL . 'php/login.php');

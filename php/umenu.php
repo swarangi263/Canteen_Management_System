@@ -1,7 +1,7 @@
-<?php include('partials/navbar.php'); ?>
+<?php include('partials/unavbar.php'); ?>
 
 <link rel="stylesheet" href="../css/menu.css">
-
+<script src="../js/store.js" async></script>
 <div class="title">
     <h1>Menu</h1>
 </div>
@@ -67,13 +67,13 @@ if (isset($_SESSION['no-item'])) {
     ?>
         <table>
             <tr>
-                <th>Sr No</th>
+                
                 <th>Item</th>
-                <th>Category</th>
+                
                 <th>Image</th>
-                <th>Summary</th>
+                
                 <th>Price</th>
-                <th>Availability</th>
+                
                 <th>Edit</th>
             </tr>
 
@@ -96,17 +96,14 @@ if (isset($_SESSION['no-item'])) {
                 }
             ?>
                 <tr>
-                    <td><?php echo $i; ?></td>
-                    <td><?php echo $item; ?></td>
-                    <td><?php echo $category; ?></td>
-                    <td><img src="../img/<?php echo $image; ?>" alt=""></td>
-                    <td><?php echo $summary; ?></td>
-                    <td><?php echo $price; ?></td>
-                    <td><?php echo $availability; ?></td>
-                    <td><a href="update-menu.php?id=<?php echo $id; ?>">
-                            <i class="fas fa-edit fa-lg"></i> </a> &nbsp;
-                        <a href="delete-menu.php?id=<?php echo $id; ?>&image=<?php echo $image; ?>">
-                            <i class="fas fa-trash fa-lg"></i></a>
+                    
+                    <td><span class="shop-item-title"><?php echo $item; ?></span></td>
+                    
+                    <td><img class="shop-item-image" src="../img/<?php echo $image; ?>" alt=""></td>
+                    
+                    <td><span class="shop-item-price"><?php echo $price; ?></span></td>
+                    
+                    <td><button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
                     </td>
                 </tr>
 
@@ -117,7 +114,21 @@ if (isset($_SESSION['no-item'])) {
 
         ?>
         </table>
-
+        
 </div>
-
+<section class="container content-section">
+            <h2 class="section-header">CART</h2>
+            <div class="cart-row">
+                <span class="cart-item cart-header cart-column">ITEM</span>
+                <span class="cart-price cart-header cart-column">PRICE</span>
+                <span class="cart-quantity cart-header cart-column">QUANTITY</span>
+            </div>
+            <div class="cart-items">
+            </div>
+            <div class="cart-total">
+                <strong class="cart-total-title">Total</strong>
+                <span class="cart-total-price">$0</span>
+            </div>
+            <button class="btn btn-primary btn-purchase" type="button">PURCHASE</button>
+</section>
 <?php include('partials/footer.php'); ?>
