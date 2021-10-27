@@ -72,7 +72,10 @@ padding: 1rem;
 border: 1px solid black;
 
 }
-
+.ud{
+    display: flex;
+    
+}
 .menutable .ava{
     background-color: #E84C4F;
     color: white;
