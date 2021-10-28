@@ -37,12 +37,12 @@ include("../config/constants.php");
 
         <!-- Login Form -->
         <form action="" method="POST" class="text-center">
-            <div class="txtfield">    
+            <div class="txtfield">
                 <label for="email">Email</label>
                 <input type="email" name="email" placeholder="Enter Username" required>
                 <span></span>
             </div>
-            <div class="txtfield">    
+            <div class="txtfield">
                 <label for="password">Password</label>
                 <input type="Password" name="password" placeholder="Enter Password" required>
                 <span></span>
@@ -50,7 +50,7 @@ include("../config/constants.php");
             <input type="submit" name="submit" value="Login" class="btn btn-primary"> <br />
         </form>
         <div class="signup_link">
-        <a href="register.php">Create an account</a>
+            <a href="register.php">Create an account</a>
         </div>
     </div>
 </body>
@@ -68,12 +68,12 @@ if (isset($_POST['submit'])) {
     $password = md5($_POST['password']);
 
     // 2. Query to check user exist
-    $sql = "SELECT * FROM users WHERE email = '$email' AND password = '$password' AND role = 1";
+    $sql = "SELECT * FROM users WHERE email = '$email' AND password = '$password'";
 
     // 3. Execute query
     $result = mysqli_query($conn, $sql);
 
-    $row= mysqli_fetch_assoc($result);
+    $row = mysqli_fetch_assoc($result);
     // print_r($result);
 
     // 4. Count to check user exists
@@ -81,23 +81,25 @@ if (isset($_POST['submit'])) {
 
     if ($num == 1) {
 
-        $_SESSION['login'] = "<div class ='success'>Login Successful. </div>";
+        $_SESSION['login'] = "<script>alert('Login Successful.)</script>";
 
-        $_SESSION['user']= $email; //to check if user is logged in or not 
-        
-        $_SESSION['user_id']= $row['id'];
-        
-        $_SESSION['clg_id']= $row['college_id'];
-        // while ($row = mysqli_fetch_assoc($result)) {
-        //     //get the details
-        //     $_SESSION["clg_id"] = $row['college'];
-        // }
+        $_SESSION['user'] = $email; //to check if user is logged in or not 
 
-        // Redirect to home/dashboard
-        header('location:' . HOME_URL . 'php/');
+        $_SESSION['user_id'] = $row['id'];
+
+        $_SESSION['clg_id'] = $row['college_id'];
+
+        $_SESSION['role'] = $row['role'];
+
+        if ($_SESSION['role'] == 1) {
+            // Redirect to home/dashboard
+            header('location:' . HOME_URL . 'php/');
+        }
+        else{
+            header('location:' . HOME_URL . 'php/umenu.php');        }
     } else {
 
-        $_SESSION['login'] = "<div class ='error text-center'> Username or Password Not Matched OR Invalid User. </div>";
+        $_SESSION['login'] = "<script>alert(Invalid Credentials OR User don't exist.)</script>";
 
         // Redirect to home/dashboard
         header('location:' . HOME_URL . 'php/login.php');

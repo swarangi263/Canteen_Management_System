@@ -5,8 +5,6 @@ $sql = "SELECT * FROM colleges";
 
 $res = mysqli_query($conn, $sql);
 
-$count = mysqli_num_rows($res);
-
 $arr = array();
 $i = 0;
 

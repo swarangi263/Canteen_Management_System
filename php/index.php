@@ -82,7 +82,7 @@ include('../php/partials/navbar.php');
                         <td><?php echo $items; ?></td>
                         <td><?php echo $total; ?></td>
                         <td><?php echo $user_contact; ?></td>
-                        <td><?php echo $payment_id; ?></td>
+                        <td><?php if($payment_id == 0){ echo "NA"; $payment_status="Not Paid";} else echo "$payment_id" ?></td>
                         <td><?php echo $payment_status; ?></td>
                         <td><?php echo $order_status; ?></td>
                         <td><?php echo $time_stamp; ?></td>

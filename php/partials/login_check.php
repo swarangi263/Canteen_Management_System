@@ -7,7 +7,7 @@
         // User is not logged in
         // redirect to login pg 
 
-        $_SESSION['no-login'] = "<div class ='error text-center'> Please Login to Access Admin Panel. </div>";
+        $_SESSION['no-login'] = "<div class ='error text-center'> Please Login. </div>";
             
         // Redirect to home/dashboard
         header('location:'.HOME_URL.'php/login.php');

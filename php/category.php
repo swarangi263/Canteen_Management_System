@@ -43,7 +43,12 @@
                 <tr>
                     <td><?php echo $i; ?></td>
                     <td><?php echo $cat; ?></td>
-                    <td><img src="../img/<?php echo $image; ?>" alt=""></td>
+                    <td>
+                        <?php if($image!=''){ ?>
+                        <img src="../img/<?php echo $image; ?>" alt=""></td>
+                        <?php 
+                        }
+                         ?>
                     <td>
                         <a href="delete-category.php?id=<?php echo $id; ?>&image=<?php echo $image; ?>">
                             <i class="fas fa-trash fa-lg"></i></a>

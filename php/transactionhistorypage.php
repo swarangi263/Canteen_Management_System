@@ -1,10 +1,13 @@
 <?php
+
+use function PHPSTORM_META\type;
+
 include('../php/partials/unavbar.php');
 ?>
 <link rel="stylesheet" href="../css/dashboard.css">
 <div class="wrapper">
     <div class="title1">
-        <h1>Dashboard</h1>
+        <h1>Order History</h1>
         <?php
 
         if (isset($_SESSION['login'])) {
@@ -38,23 +41,23 @@ include('../php/partials/unavbar.php');
         $count = mysqli_num_rows($res);
         if ($count == 0) {
         ?>
-
-            <h2>No Orders</h2>
-
+            <h2>No Past Orders</h2>
+           
         <?php
         } else {
 
         ?>
             <table>
                 <tr>
-                    
+
+                    <th>Sr No.</th>
                     <th>Order Id</th>
                     <th>Order Item</th>
                     <th>Total Cost</th>
-                    
+
                     <th>Payment Id</th>
-                    
-                    
+
+
                     <th>Timestamp</th>
                 </tr>
 
@@ -77,13 +80,24 @@ include('../php/partials/unavbar.php');
                 ?>
 
                     <tr>
-                        
+                        <td><?php echo $order_id; ?></td>
                         <td><a href="#" onclick="mydetails(this)"><?php echo $order_id; ?></a></td>
-                        <td><?php echo $items; ?></td>
+                        <td>
+                            <ul>
+                            <?php 
+                                $items = explode(",",$items);
+                                foreach ($items as $item){
+                                    ?>
+                                    <li><?php echo $item; ?></li>
+                                    <?php
+                                }
+                            ?>
+                            </ul>
+                    </td>
                         <td><?php echo $total; ?></td>
-                        
+
                         <td><?php echo $payment_id; ?></td>
-                        \
+                        
                         <td><?php echo $time_stamp; ?></td>
                     </tr>
 
@@ -94,8 +108,8 @@ include('../php/partials/unavbar.php');
             ?>
             </table>
     </div>
-    <div class="hoverbutton">
-        <a href="add-menu.php" target="_blank" title="Add Menu" class="float"><i class="fas fa-utensils"></i></a>
+    <div class="hoverbutton" id="u_order">
+        <a href="umenu.php" target="_blank" title="Order Now" class="float"><i class="fas fa-plus"></i></a>
     </div>
 </div>
 <script>

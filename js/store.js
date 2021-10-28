@@ -37,7 +37,9 @@ function purchaseClicked() {
 
 function removeCartItem(event) {
     var buttonClicked = event.target
+    // console.log(buttonClicked)
     buttonClicked.parentElement.parentElement.remove()
+    var id = CartItem.getElementsByClassName('card-item-id')[0].innerText //added
     updateCartTotal()
 }
 
@@ -52,14 +54,16 @@ function quantityChanged(event) {
 function addToCartClicked(event) {
     var button = event.target
     var shopItem = button.parentElement.parentElement
+    var id = shopItem.getElementsByClassName('shop-item-id')[0].innerText //added
     var title = shopItem.getElementsByClassName('shop-item-title')[0].innerText
     var price = shopItem.getElementsByClassName('shop-item-price')[0].innerText
     var imageSrc = shopItem.getElementsByClassName('shop-item-image')[0].src
-    addItemToCart(title, price, imageSrc)
+    // console.log(title);
+    addItemToCart(id,title, price, imageSrc)
     updateCartTotal()
 }
 
-function addItemToCart(title, price, imageSrc) {
+function addItemToCart(id,title, price, imageSrc) {
     var cartRow = document.createElement('div')
     cartRow.classList.add('cart-row')
     var cartItems = document.getElementsByClassName('cart-items')[0]
@@ -72,6 +76,7 @@ function addItemToCart(title, price, imageSrc) {
     }
     var cartRowContents = `
         <div class="cart-item cart-column">
+            <span class="cart-item-id"  style="display: none;">${id}</span>  
             <img class="cart-item-image" src="${imageSrc}" width="100" height="100">
             <span class="cart-item-title">${title}</span>
         </div>

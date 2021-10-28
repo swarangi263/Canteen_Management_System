@@ -1,25 +1,28 @@
 <?php
-include('../config/constants.php');
+    require_once("../config/constants.php");
 
-$contact= $_POST['contact'];
+    $contact= $_POST['contact'];
+    $password =  md5($_POST['password']);
 
-$password =md5($_POST['password']);
-
-$sql = "SELECT * FROM users WHERE contact = '$contact' AND password = '$password' AND role = 1";
-
-$result = mysqli_query($conn, $sql);
-
-$row= mysqli_fetch_assoc($result);
-
-$num = mysqli_num_rows($result);
-
-
-if($num == 1){
-   
-    echo json_encode("Logged In Successfully");
-}
-else{
-    echo json_encode("dont have an account");
-}
+    $sql = "SELECT * from users Where contact = '$contact'";
+    $res = mysqli_query($conn,$sql);
+    $data = mysqli_fetch_assoc($res);
+    if($data>0){
+        $sql = "SELECT * from users where contact = '$contact' AND password = '$password'";
+        $res = mysqli_query($conn,$sql);
+        $data = mysqli_fetch_assoc($res);
+        if($data>0)
+        {
+           echo json_encode($data['id']);
+        }
+        
+        else{
+            echo json_encode("wrong password");
+        }
+    }
+    else
+    {
+        echo json_encode("dont have account");
+    }
 
 ?>

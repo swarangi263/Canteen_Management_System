@@ -96,6 +96,7 @@ if (isset($_SESSION['no-item'])) {
                 }
             ?>
                 <tr>
+                    <td ><span class="shop-item-id"><?php echo $id; ?></span></td>
                     
                     <td><span class="shop-item-title"><?php echo $item; ?></span></td>
                     
@@ -119,6 +120,7 @@ if (isset($_SESSION['no-item'])) {
 <section class="container content-section">
             <h2 class="section-header">CART</h2>
             <div class="cart-row">
+                <span class="cart-id cart-header cart-column" style="display: none;">ID</span>
                 <span class="cart-item cart-header cart-column">ITEM</span>
                 <span class="cart-price cart-header cart-column">PRICE</span>
                 <span class="cart-quantity cart-header cart-column">QUANTITY</span>
