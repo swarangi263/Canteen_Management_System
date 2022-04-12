@@ -4,17 +4,22 @@ include('../config/constants.php');
 $user_id = $_POST['user_id'];
 $college_id = $_POST['college_id'];
 $total_price = $_POST['total_price']; //Total cost of the order
+$payment_method = $_POST['payment_method'];
+
+if($payment_method=='Cash'){
+    $payment_status = 'pending';
+}
 
 // Query to add the total into order lists table
-$sql = "INSERT INTO order_lists(user_id,college_id,total_price) VALUES('$user_id','$college_id','$total_price')";
+$sql = "INSERT INTO order_lists(user_id,college_id,total_price,payment_method,payment_status) VALUES('$user_id','$college_id','$total_price','$payment_method','$payment_status')";
 
 $res = mysqli_query($conn, $sql);
 
 if ($res) {
-    echo json_encode("Order placed");
+    // echo json_encode("Order placed");
 
     $order_id = mysqli_insert_id($conn); //id of the order being placed
-    echo json_encode($order_id);
+    // echo json_encode($order_id);
 
     //Query to get item details from cart
     $sql_c = "SELECT * FROM cart_items WHERE user_id = '$user_id' ";
@@ -39,7 +44,7 @@ if ($res) {
                 
                 $res_d = mysqli_query($conn, $sql_d);
                 if ($res_d) {
-                    echo json_encode("Item deleted from cart");
+                    echo json_encode("Order placed");
                 } else {
                     echo json_encode("Couldn't delete the item");
                 }
